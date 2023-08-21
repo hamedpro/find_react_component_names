@@ -4,7 +4,8 @@ import { readFileSync } from "fs";
 import cliProgress from "cli-progress";
 import readline from "readline/promises";
 import inquirer from "inquirer";
-
+import yargs from "yargs";
+console.log(yargs);
 export async function main() {
 	var files = execSync("git ls-tree -r main --name-only")
 		.toString()
@@ -27,9 +28,10 @@ export async function main() {
 
 	var selected_component_names = [];
 	for (var component_name of component_names) {
-		var line = await inquirer.prompt(`do you want <${component_name} /> ? `);
-		console.log(line);
-		if (line === "y") {
+		var { accepted } = await inquirer.prompt([
+			{ name: "accepted", type: "confirm", message: `do you want <${component_name} /> ? ` },
+		]);
+		if (accepted) {
 			selected_component_names.push(component_name);
 		}
 	}
