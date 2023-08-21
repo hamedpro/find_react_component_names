@@ -1,0 +1,19 @@
+{
+  "name": "find_react_component_names",
+  "version": "1.0.0",
+  "description": "\"a simple tool to print parsed name of all used react components\"",
+  "main": "find_component_names.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\"https://github.com/hamedpro/find_react_component_names\""
+  },
+  "keywords": [
+    "react",
+    "regex"
+  ],
+  "author": "hamedpro",
+  "license": "MIT"
+}
