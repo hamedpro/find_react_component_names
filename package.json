@@ -1,6 +1,6 @@
 {
   "name": "find_react_component_names",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "\"a simple tool to print parsed name of all used react components\"",
   "repository": {
