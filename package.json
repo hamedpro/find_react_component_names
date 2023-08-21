@@ -3,10 +3,6 @@
   "version": "1.0.1",
   "type": "module",
   "description": "\"a simple tool to print parsed name of all used react components\"",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "\"https://github.com/hamedpro/find_react_component_names\""
@@ -18,6 +14,10 @@
   "author": "hamedpro",
   "license": "MIT",
   "dependencies": {
-    "cli-progress": "^3.12.0"
+    "cli-progress": "^3.12.0",
+    "inquirer": "^9.2.10"
+  },
+  "bin": {
+    "find_react_component_names": "./index.js"
   }
 }

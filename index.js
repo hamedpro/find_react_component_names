@@ -1,7 +1,11 @@
+#!/usr/bin/env node
 import { execSync } from "child_process";
 import { readFileSync } from "fs";
 import cliProgress from "cli-progress";
-export function main() {
+import readline from "readline/promises";
+import inquirer from "inquirer";
+
+export async function main() {
 	var files = execSync("git ls-tree -r main --name-only")
 		.toString()
 		.split("\n")
@@ -20,5 +24,15 @@ export function main() {
 		progress_bar.update(index + 1);
 	});
 	progress_bar.stop();
-	return component_names;
+
+	var selected_component_names = [];
+	for (var component_name of component_names) {
+		var line = await inquirer.prompt(`do you want <${component_name} /> ? `);
+		console.log(line);
+		if (line === "y") {
+			selected_component_names.push(component_name);
+		}
+	}
+	selected_component_names.forEach((component_name) => console.log(component_name));
 }
+main();
