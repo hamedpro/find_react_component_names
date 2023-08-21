@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from "child_process";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import cliProgress from "cli-progress";
 import inquirer from "inquirer";
 import yargs from "yargs";
@@ -36,6 +36,6 @@ export async function main() {
 			selected_component_names.push(component_name);
 		}
 	}
-	selected_component_names.forEach((component_name) => console.log(component_name));
+	writeFileSync("component_names.json", JSON.stringify(selected_component_names));
 }
 main();
